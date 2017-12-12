@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>二级下拉菜单</title>
+    <link href="02.css" type="text/css" rel="stylesheet">
+</head>
+<!-- 二级下拉菜单是在横向一级菜单的基础上添加下拉效果实现的，制作思路：
+    第一步：静态网页的制作
+    标签<ul><li>...</li></ul>项目列表
+    标签<a>链接
+    float浮动
+    display:block属性
+    postion属性规定元素的定位
+    第二步：动态特效的实现
+    下拉菜单的显示与隐藏
+    今天我们使用CSS样式表实现，那么制作流程是：
+    1一级菜单设置：设置CSS样式,使一级菜单横向显示,位于一行中。
+    2二级菜单设置：给”课程大厅”菜单,添加二级菜单(JavScript/JQuery/Ajax三项)，并带链接；同时给“学习中心”菜
+    单，添加二级菜单(视频学习/案例学习/交流平台三项)，也带链接。
+    3隐藏二级菜单： 设置CSS样式,让二级菜单隐藏。
+    4显示二级菜单：设置CSS样式,让二级菜单显示。
+    5浏览器兼容性问题解决以及代码优化，至少测试五个浏览器。我测试的是IE7,8,9，2345浏览器，谷歌浏览器以
+    及火狐浏览器。-->
+<body>
+    <div id = "nav" class="nav">
+        <ul>
+            <!--
+            <a href="#">网站首页</a>空链接，点击后跳转到原网页，即：不发生变化，但是确实跳转了
+            -->
+            <li><a href="http://www.antonio.net.cn">网站首页</a></li>
+            <li><a href="#">课程大厅</a>
+                <ul>
+                    <li><a href="#">JS</a></li>
+                    <li><a href="#">JQ</a></li>
+                    <li><a href="#">AJax</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">学习中心</a>
+                <ul>
+                    <li><a href="#">视频学习</a></li>
+                    <li><a href="#">案例学习</a></li>
+                    <li><a href="#">交流学习</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">经典案例</a></li>
+            <li><a href="#">关于我们</a></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    width: 100px;
+    height: 30px;
+    /*border: 1px solid ;*/
+    list-style-type: none;
+    background-color: #EEEEEE;
+}
+
+li a{
+    display: block;
+    text-decoration: none;
+    height: 30px;
+    line-height: 30px;
+    width: 100px;
+    text-align: center;
+    background-color: #EEEEEE;
+}
+
+a:hover{
+    background-color: #009933;
+}
+
+/*
+大于号表示直接从属关系。
+这个选择器只对<id="nav"><li><a></a></li></>结构有效
+>是一种选择器。效果比较广,必须是紧接着id的下一代， 而不是下几代
+>选择器区别于一般的子代选择器，是由于他的精准性,单一性
+<div id="nav">
+    <ul>就是选中这里</ul>
+</div>
+下面一个#nav>ul>li也是一样的。
+<div id="nav">
+    <ul>
+        <li>就是选中这里</li>
+    </ul>
+</div>
+*/
+
+.div{
+
+    background-color: #EEEEEE;
+    height: 100px;
+    width: 40px;
+    margin:0 auto;
+}
+
+
+#nav > li{
+    /*符号>不是大小关系，而是从属关系
+    li 是nav这个ID的孩子*/
+    position: relative;
+}
+
+#nav > li > a:hover{
+    /*在鼠标选中li时，变色*/
+    background-color: #666666;
+}
+
+#nav > li >ul.level1{
+    /*第二层*/
+    position: absolute;
+    top:0px;
+    left:100px;/*相对与第一层的距离*/
+}
+
+#nav > li >ul.level1 > li > ul.level2{
+    position: absolute;
+    top:0px;
+    left:100px;/*相对与第二层的距离*/
+}
+
+
+#nav > li > ul.level1{
+    display: none;
+    /*隐藏*/
+}
+
+#nav > li > ul.level1 > li > ul.level2{
+    display: none;
+    /*隐藏*/
+}
+
+
+#nav > li:hover > ul.level1{
+    display: block;
+    /*当鼠标悬浮在li层时， 显示第二层*/
+}
+
+#nav > li > ul.level1 > li:hover > ul.level2{
+    display: block;
+    /*当鼠标悬浮在li ul li 时， 显示第三层*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

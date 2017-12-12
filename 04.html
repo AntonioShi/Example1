@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Html + Js 三级菜单</title>
+    <!--注意区分js和css外链的方式语句-->
+    <link href="04.css" rel="stylesheet" type="text/css">
+    <!--<script src="04.js" rel="script" type="text/javascript"></script>-->
+    <script type="text/javascript">
+
+        function addLoadEvent(func){          //func为将要绑定到window.onload上的函数；
+            var oldonload=window.onload;    //可能已经绑定了一些函数
+            if(typeof window.onload!='function'){  //如果在这个处理函数上还没有绑定任何函数，就像平时那样把新函数添加给它
+                window.onload=func();
+            }
+            else{                                   //如果在这个处理函数上已经绑定了一些函数，就把新函数追加到现在指令的末尾
+                window.onload=function(){
+                    oldonload();
+                    func();
+                }
+            }
+        }
+        function Hover(){
+            var Lis=document.getElementsByTagName("li");
+            for(var i= 0,len=Lis.length; i<len; i++){
+                Lis[i].onmouseover=function(){
+                    var secondUl=this.getElementsByTagName("ul")[0];
+                    if(secondUl!=undefined){
+                        secondUl.style.display="block";
+                    }
+                    this.style.backgroundColor="#666666";
+                }
+                Lis[i].onmouseout=function(){
+                    var secondUl=this.getElementsByTagName("ul")[0];
+                    if(secondUl!=undefined){
+                        secondUl.style.display="none";
+                    }
+                    this.style.backgroundColor="#eee";
+                }
+            }
+        }
+//        addLoadEvent(Hover);
+        function Over() {
+            var Lis=document.getElementsByTagName("li");
+            for(var i= 0,len=Lis.length; i<len; i++){
+                Lis[i].onmouseover=function(){
+                    var secondUl=this.getElementsByTagName("ul")[0];//                    通过标签名寻找
+
+                    if(secondUl!=undefined){
+                        secondUl.style.display="block";
+                    }
+                    this.style.backgroundColor = "antiquewhite"
+                }
+                Lis[i].onmouseout=function(){
+                    var secondUl=this.getElementsByTagName("ul")[0];//                    通过标签名寻找
+                    if(secondUl!=undefined){
+                        secondUl.style.display="none";
+                    }
+                    this.style.backgroundColor="#eee";
+                }
+            }
+        }
+    </script>
+</head>
+
+<!--onmouseover和onmouseout的烦恼
+document.getElementById('...').onmouseover = function(e){
+    if( !e ) e = window.event;
+    var reltg = e.relatedTarget ? e.relatedTarget : e.fromElement;
+    while( reltg && reltg != this ) reltg = reltg.parentNode;
+    if( reltg != this ){
+        // 这里可以编写 onmouseenter 事件的处理代码
+    }
+}
+
+
+
+document.getElementById('...').onmouseout = function(e){
+    if( !e ) e = window.event;
+    var reltg = e.relatedTarget ? e.relatedTarget : e.toElement;
+    while( reltg && reltg != this ) reltg = reltg.parentNode;
+    if( reltg != this ){
+        // 这里可以编写 onmouseleave 事件的处理代码
+   }
+}
+
+-->
+
+<body>
+    <div class="navMenu" onmouseover="addLoadEvent(Hover)" onmouseout="addLoadEvent(Over)">
+        <!--什么？居然莫名其妙的就成功啦？What mother fuck!-->
+        <!--
+            onouseover是鼠标悬浮时：调用函数addLoadEvent（Hover）
+            onmouseout是鼠标移开时：
+            -->
+        <ul>
+            <li><a href="#">首页</a>
+                <ul>
+                    <li><a href="#">JavaScript+</a>
+                        <ul>
+                            <li><a href="#">三角函数</a></li>
+                            <li><a href="#">矩形</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">语文</a>
+                        <ul>
+                            <li><a href="#">唐诗</a></li>
+                            <li><a href="#">宋词</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">英语</a></li>
+                </ul>
+            </li>
+            <li><a href="#">课程大厅</a></li>
+            <li><a href="#">学习中心+</a>
+                <ul>
+                    <li><a href="#">JavaScript+</a>
+                        <ul>
+                            <li><a href="#">三角函数</a></li>
+                            <li><a href="#">矩形</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">语文</a>
+                        <ul>
+                            <li><a href="#">三角函数</a></li>
+                            <li><a href="#">矩形</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">英语</a></li>
+                </ul>
+            </li>
+            <li><a href="#">帮助</a></li>
+        </ul>
+    </div>
+</body>

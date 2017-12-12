@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<link href="01.css" type="text/css" style="align-content: center">-->
+    <style type="text/css">
+        .text ul{
+            list-style-type: none;
+        }
+
+        .text ul li{
+            float: left;/*默认垂直，修改浮动*/
+            width: 50px;
+            height: 20px;
+            border:1px solid black;/*属性值间不能用逗号隔开，*/
+            text-align: center;
+        }
+
+        .text ul li ul{
+            /*继承*/
+            display: none;
+            /*默认隐藏*/
+        }
+
+        .text li:hover ul{
+            /*嵌套:当鼠标浮动时， 菜单就会块状显示*/
+            display: block;
+            /*块形显示*/
+        }
+    </style>
+
+    <title>select控件-二级菜单</title>
+</head>
+<!--
+1.写出一个ul-li菜单时，它会默认垂直排列，而我们需要的是水平的菜单栏，所以需要设置li的浮动：float：left
+2.当鼠标悬浮在有二级菜单的一级菜单选项时，才会出现二级菜单，所以在鼠标不悬浮的情况下，需要把二级隐藏起
+来display：none
+3.最后，设置li :hover ul 这个意思是，当鼠标悬浮在li上时，li下的ul呈现状态，hover是悬浮的意思，在设置a标签样
+式时应该会接触过
+-->
+<body>
+    <div class="text">
+       <ul>
+           <li>A</li>
+           <li>B</li>
+           <li>C
+               <ul>
+                   <li>C1</li>
+                   <li>C2</li>
+                   <li>C3</li>
+               </ul>
+           </li>
+       </ul>
+    </div>
+
+</body>
+</html>

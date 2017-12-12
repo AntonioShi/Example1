@@ -1,0 +1,51 @@
+/*<span style="font-size:18px;">!*CSS全局设置*!*/
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.nav{
+    background-color: #eeeeee;
+    height: 40px;
+    width: 450px;
+    margin: 0 auto;
+}
+
+ul{
+    list-style-type: none;
+}
+
+ul li{
+    float: left;
+    line-height: 40px;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+    display: block;
+    width: 90px;
+    height: 40px;
+}
+
+a:hover{
+    background: #666666;
+    color: #FFFFFF;
+}
+
+ul li ul li{
+    float: none;
+    background: #eeeeee;
+}
+
+ul li ul{
+    display: none;
+}
+
+ul li ul li a:hover{
+    background: #009933;
+}
+
+/*</span>*/

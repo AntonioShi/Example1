@@ -1,0 +1,75 @@
+*{
+    /*元素选择器，匹配所有元素*/
+    margin: 0;
+    padding: 0;
+    -webkit-animation-duration: 5s;
+    -moz-animation-duration: 5s;/*兼容性*/
+    -o-animation-duration: 5s;
+    animation-duration: 5s;
+}
+
+.nav{
+    /*导航条*/
+    background-color: #EEEEEE;
+    height: 40px;
+    width: 450px;
+    margin:0 auto;
+}
+
+/*横向一级菜单样式设置*/
+ul{
+    /*标签选择器， 匹配所有改标签*/
+    list-style-type: none;
+}
+
+ul li{
+    /*继承选择器 一级菜单*/
+    float: left;
+    line-height: 40px;
+    text-align: center;
+    position: relative;
+}
+
+a{
+    text-decoration: none;
+    color: #000000;
+    display: block;/*a标签行标签转变为块标签*/
+    width: 90px;
+    height: 40px;
+}
+
+a:hover{
+    /*伪类 鼠标点击效果*/
+    background-color: #666666;
+    color: #FFFFFF;/*meicha*/
+}
+
+/*二级菜单的初始效果：隐藏时的效果*/
+ul li ul{
+    position: absolute;
+    top: 40px;/*要和一级菜单的高度对应，尽量不要产生缝隙*/
+    left:0px;
+    display: none;/*默认状态下或鼠标离开时：隐藏信息*/
+    width: 90px;
+}
+
+/*当鼠标悬浮在二级菜单时：变色*/
+ul li ul li a:hover{
+    /*二级菜单下的伪类效果*/
+    background-color: #009933;
+}
+
+/*当鼠标悬浮在一级菜单时：显示二级菜单*/
+ul li:hover ul{
+    /*第一个li是一级菜单结束临界，此刻用伪类是为了二级菜单*/
+    display: block;
+}
+
+/*默认效果是垂直，取消之前隐藏时浮动的效果
+  此刻的效果是当鼠标*/
+ul li ul li{
+    float: none;/*取消浮动效果， 可有可无*/
+    background-color: #EEEEEE;
+}
+
+
